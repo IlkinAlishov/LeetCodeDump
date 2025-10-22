@@ -30,17 +30,20 @@
             padding: 2px 6px;
             border-radius: 4px;
         }
-        .explanation {
-            background-color: #f0f0f0;
-            border-left: 5px solid #4CAF50;
+        .example-block {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
             padding: 10px;
-            margin-bottom: 20px;
+            border-radius: 5px;
+            margin-bottom: 15px;
         }
-        .explanation p {
-            margin: 0;
+        .example-io {
+            font-weight: bold;
+            color: #2e8b57;
         }
-        h3 {
-            margin-top: 20px;
+        ul {
+            list-style-type: none;
+            padding-left: 0;
         }
         .note {
             background-color: #ffeb3b;
@@ -53,120 +56,67 @@
 </head>
 <body>
 
-    <h1>C++ Common Concepts and Syntax for DSA Problems</h1>
+    <h1>Contains Duplicate Problem - C++ Solution</h1>
 
-    <h2>1. Sorting a Container</h2>
-    <p>To sort a container (such as a <code>vector</code> or <code>array</code>), you can use the <code>std::sort()</code> function from the C++ Standard Library.</p>
+    <h2><a href="https://leetcode.com/problems/contains-duplicate">Contains Duplicate</a></h2>
+    <img src='https://img.shields.io/badge/Difficulty-Easy-brightgreen' alt='Difficulty: Easy' />
+    <hr>
+    <p>Given an integer array <code>nums</code>, return <code>true</code> if any value appears <strong>at least twice</strong> in the array, and return <code>false</code> if every element is distinct.</p>
 
-    <pre><code>std::sort(arrayName.begin(), arrayName.end());</code></pre>
+    <p>&nbsp;</p>
+    <p><strong class="example">Example 1:</strong></p>
 
-    <div class="explanation">
-        <p><strong>Explanation:</strong></p>
-        <ul>
-            <li><code>std::sort</code> is used to sort elements in a range, in this case, from the beginning (<code>arrayName.begin()</code>) to the end (<code>arrayName.end()</code>) of the container.</li>
-            <li>The default sorting is in ascending order. To sort in descending order, you can pass a custom comparator:</li>
-        </ul>
-        <pre><code>std::sort(arrayName.begin(), arrayName.end(), std::greater<int>());</code></pre>
+    <div class="example-block">
+        <p><strong>Input:</strong> <span class="example-io">nums = [1,2,3,1]</span></p>
+        <p><strong>Output:</strong> <span class="example-io">true</span></p>
+        <p><strong>Explanation:</strong> The element 1 occurs at the indices 0 and 3.</p>
     </div>
 
-    <h2>2. Using HashMap (<code>unordered_map</code>) and HashSet (<code>unordered_set</code>)</h2>
-    <p>In C++, hash-based containers include <code>unordered_map</code> and <code>unordered_set</code> from the unordered container library.</p>
+    <p><strong class="example">Example 2:</strong></p>
 
-    <pre><code>unordered_map<int, int> mapName;  // HashMap: Key-Value pair
-unordered_set<int> setName;       // HashSet: Unique elements</code></pre>
-
-    <div class="explanation">
-        <p><strong>Explanation:</strong></p>
-        <ul>
-            <li><code>unordered_map<int, int></code>: A hash map stores key-value pairs. You can access the value by the key.</li>
-            <li><code>unordered_set<int></code>: A hash set stores unique elements, eliminating duplicates.</li>
-        </ul>
+    <div class="example-block">
+        <p><strong>Input:</strong> <span class="example-io">nums = [1,2,3,4]</span></p>
+        <p><strong>Output:</strong> <span class="example-io">false</span></p>
+        <p><strong>Explanation:</strong> All elements are distinct.</p>
     </div>
 
-    <h2>3. Checking If an Element Exists in HashMap or HashSet</h2>
-    <p>To check if an element exists in a <code>HashMap</code> or <code>HashSet</code>, you can use any of the following methods. These are often used for efficient lookups in problems where you need to check for the presence of a value.</p>
+    <p><strong class="example">Example 3:</strong></p>
 
-    <h3>Using <code>count()</code> Method:</h3>
-    <pre><code>if (mapName.count(key) > 0) {  // For unordered_map
-    // Element found in map
-}
-
-if (setName.count(element) > 0) {  // For unordered_set
-    // Element found in set
-}</code></pre>
-
-    <div class="explanation">
-        <p><strong>Explanation:</strong></p>
-        <ul>
-            <li><code>mapName.count(key)</code> returns <code>1</code> if the <code>key</code> exists in the map, and <code>0</code> if it doesn't.</li>
-            <li><code>setName.count(element)</code> checks for the presence of <code>element</code> in the hash set. If the element is found, it returns <code>1</code>; otherwise, it returns <code>0</code>.</li>
-        </ul>
+    <div class="example-block">
+        <p><strong>Input:</strong> <span class="example-io">nums = [1,1,1,3,3,4,3,2,4,2]</span></p>
+        <p><strong>Output:</strong> <span class="example-io">true</span></p>
     </div>
 
-    <h3>Using <code>find()</code> Method:</h3>
-    <pre><code>if (mapName.find(key) != mapName.end()) {  // For unordered_map
-    // Element found in map
-}
+    <p>&nbsp;</p>
+    <p><strong>Constraints:</strong></p>
+    <ul>
+        <li><code>1 &lt;= nums.length &lt;= 10<sup>5</sup></code></li>
+        <li><code>-10<sup>9</sup> &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
+    </ul>
 
-if (setName.find(element) != setName.end()) {  // For unordered_set
-    // Element found in set
-}</code></pre>
+    <hr>
 
-    <div class="explanation">
-        <p><strong>Explanation:</strong></p>
-        <ul>
-            <li><code>mapName.find(key)</code> returns an iterator to the element if found, or <code>mapName.end()</code> if the <code>key</code> does not exist.</li>
-            <li>Similarly, <code>setName.find(element)</code> returns an iterator to the element if it exists, otherwise <code>setName.end()</code>.</li>
-        </ul>
-    </div>
+    <h2>Solution - C++ Code</h2>
+    <pre><code>class Solution {
+public:
+    bool containsDuplicate(std::vector<int>& nums) {
+        unordered_set<int> seen;
+
+        for(int el: nums) {
+            if(seen.count(el) > 0) {
+                return true;
+            }
+            seen.insert(el);
+        }
+
+        return false;
+    }
+};
+</code></pre>
 
     <div class="note">
-        <p><strong>Note:</strong> The <code>count()</code> method is generally more straightforward, but <code>find()</code> can be more flexible if you need to manipulate the iterator or retrieve the value directly.</p>
+        <p><strong>Note:</strong> This C++ solution uses an <code>unordered_set</code> to track elements that have been encountered. The <code>count()</code> method checks if the element already exists in the set.</p>
     </div>
 
 </body>
 </html>
-
-
-<h2><a href="https://leetcode.com/problems/contains-duplicate">Contains Duplicate</a></h2> <img src='https://img.shields.io/badge/Difficulty-Easy-brightgreen' alt='Difficulty: Easy' /><hr><p>Given an integer array <code>nums</code>, return <code>true</code> if any value appears <strong>at least twice</strong> in the array, and return <code>false</code> if every element is distinct.</p>
-
-<p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
-
-<div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">nums = [1,2,3,1]</span></p>
-
-<p><strong>Output:</strong> <span class="example-io">true</span></p>
-
-<p><strong>Explanation:</strong></p>
-
-<p>The element 1 occurs at the indices 0 and 3.</p>
-</div>
-
-<p><strong class="example">Example 2:</strong></p>
-
-<div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">nums = [1,2,3,4]</span></p>
-
-<p><strong>Output:</strong> <span class="example-io">false</span></p>
-
-<p><strong>Explanation:</strong></p>
-
-<p>All elements are distinct.</p>
-</div>
-
-<p><strong class="example">Example 3:</strong></p>
-
-<div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">nums = [1,1,1,3,3,4,3,2,4,2]</span></p>
-
-<p><strong>Output:</strong> <span class="example-io">true</span></p>
-</div>
-
-<p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
-
-<ul>
-	<li><code>1 &lt;= nums.length &lt;= 10<sup>5</sup></code></li>
-	<li><code>-10<sup>9</sup> &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
-</ul>
