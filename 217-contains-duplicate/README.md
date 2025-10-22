@@ -4,55 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>C++ Common Concepts for DSA</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 20px;
-            color: #333;
-        }
-        h1, h2 {
-            color: #333;
-        }
-        pre {
-            background-color: #2e2e2e;
-            color: #f8f8f8;
-            padding: 10px;
-            border-radius: 5px;
-            overflow-x: auto;
-            font-size: 1rem;
-        }
-        code {
-            font-size: 1rem;
-            background-color: #f5f5f5;
-            padding: 2px 6px;
-            border-radius: 4px;
-        }
-        .example-block {
-            background-color: #f9f9f9;
-            border: 1px solid #ddd;
-            padding: 10px;
-            border-radius: 5px;
-            margin-bottom: 15px;
-        }
-        .example-io {
-            font-weight: bold;
-            color: #2e8b57;
-        }
-        ul {
-            list-style-type: none;
-            padding-left: 0;
-        }
-        .note {
-            background-color: #ffeb3b;
-            padding: 10px;
-            border-radius: 5px;
-            margin: 20px 0;
-            font-weight: bold;
-        }
-    </style>
+    
 </head>
 <body>
 
