@@ -1,19 +1,45 @@
-#include <unordered_set>
-
 class Solution {
 public:
     bool containsDuplicate(std::vector<int>& nums) {
-        std::unordered_set<int> isDouble;
-        for(int i = 0; i < nums.size(); i++){
-            int t = nums[i];
-            if(isDouble.find(nums[i]) != isDouble.end()){
-                return true;
-            }
-            else{
-                isDouble.insert(nums[i]);
-            }
+        unordered_set<int> seen;
+
+        for(int el: nums){
+            if(seen.count(el)) return true;
+            seen.insert(el);
         }
 
         return false;
+
+        // for(int el: nums){
+        //     if(seen.find(el) != seen.end()) return true;
+        //     seen.insert(el);
+        // }
+
+        // return false;
     }
 };
+
+        
+        
+        // sort(nums.begin(), nums.end());
+
+        // for(int i = 1; i < nums.size(); i++){
+        //     if(nums[i] == nums[i-1]) return true;
+        // }
+
+        // return false;
+
+        // sort(nums.begin(), nums.end());
+
+        // for(int i = 0; i < nums.size()-1; i++){
+        //     if(nums[i] == nums[i+1]) return true;
+        // }
+        // return false;
+
+        // // sort(nums.begin(), nums.end());
+        // for(int i = 0; i < nums.size(); i++){
+        //     for(int j = i+1; j < nums.size(); j++){
+        //         if(nums[i] == nums[j]) return true;
+        //     }
+        // }
+        // return false;
