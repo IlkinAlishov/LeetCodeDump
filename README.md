@@ -16,7 +16,7 @@ unordered_map<int>;
 vector<int> count(26, 0);
 
 # If element exists
-array.count(el); #Returns number of elements
+array.count(el); #Returns number of elements<br>
 array.find(el) != array.end(); #Returns true/false
 
 # Adding element to a HashSet
